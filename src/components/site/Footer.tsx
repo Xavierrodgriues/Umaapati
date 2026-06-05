@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -26,7 +26,7 @@ export function Footer() {
         <div>
           <h4 className="font-display font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2 text-sm text-brand-foreground/80">
-            {[["/about","About Us"],["/services","Services"],["/clientele","Industries"],["/contact","Contact"]].map(([to,label])=>(
+            {([["/about","About Us"],["/services","Services"],["/clientele","Industries"],["/contact","Contact"]] as const).map(([to,label])=>(
               <li key={to}><Link to={to} className="hover:text-accent transition">{label}</Link></li>
             ))}
           </ul>
@@ -38,9 +38,9 @@ export function Footer() {
             <li>Customs Clearance</li>
             <li>Freight Forwarding</li>
             <li>DGFT Consultancy</li>
-            <li>Logistics & Transportation</li>
+            <li>Logistics &amp; Transportation</li>
             <li>Trade Compliance</li>
-            <li>Warehousing & Distribution</li>
+            <li>Warehousing &amp; Distribution</li>
           </ul>
         </div>
 

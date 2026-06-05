@@ -1,6 +1,6 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Mail, Phone, Menu, X, Linkedin, Facebook, Linkedin as LinkedinIcon } from "lucide-react";
+import { Mail, Phone, Menu, X, Facebook, Linkedin as LinkedinIcon } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const nav = [
@@ -13,7 +13,7 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const path = useRouterState({ select: (s) => s.location.pathname });
+  const { pathname } = useLocation();
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -43,7 +43,7 @@ export function Header() {
 
           <nav className="hidden lg:flex items-center gap-1">
             {nav.map((n) => {
-              const active = path === n.to;
+              const active = pathname === n.to;
               return (
                 <Link
                   key={n.to}
@@ -79,7 +79,7 @@ export function Header() {
                   to={n.to}
                   onClick={() => setOpen(false)}
                   className={`py-2.5 px-2 text-sm font-medium rounded ${
-                    path === n.to ? "text-brand bg-secondary" : "text-foreground/80"
+                    pathname === n.to ? "text-brand bg-secondary" : "text-foreground/80"
                   }`}
                 >
                   {n.label}
