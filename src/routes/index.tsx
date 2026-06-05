@@ -2,64 +2,53 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Briefcase, Users, Globe2, Award, Ship, Plane, FileCheck, Truck, Quote, ChevronRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles, HeartHandshake, Lightbulb, Target, Ship, Plane, FileCheck, Truck, Warehouse, ScrollText, Globe2, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroPort from "@/assets/hero-port.jpg";
 import heroAir from "@/assets/hero-air.jpg";
 import heroCustoms from "@/assets/hero-customs.jpg";
 import aboutImg from "@/assets/about.jpg";
-import mdImg from "@/assets/md.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Star Group — Import-Export Consultancy & Logistics in India" },
-      { name: "description", content: "25+ years of trusted EXIM consultancy, customs clearance, freight forwarding & DGFT support in Mumbai, Pune & Delhi." },
-      { property: "og:title", content: "Star Group — Import-Export Consultancy & Logistics" },
-      { property: "og:description", content: "Integrated EXIM consultancy & logistics for MNCs, corporates, and MSMEs across India." },
+      { title: "Umaapati International Business LLP — Global Trade, Customs & Logistics" },
+      { name: "description", content: "Trusted partner for international trade, customs clearance, freight forwarding, logistics and export-import consultancy." },
+      { property: "og:title", content: "Umaapati International Business LLP" },
+      { property: "og:description", content: "Global Trade Made Simple, Fast & Compliant." },
     ],
   }),
   component: Home,
 });
 
 const slides = [
-  { img: heroPort, eyebrow: "Global Trade, Simplified", title: "Your Gateway to Seamless Import-Export", subtitle: "End-to-end EXIM consultancy, customs clearance, and freight forwarding — trusted by 100+ MNCs since 2000." },
-  { img: heroAir, eyebrow: "Air & Sea Freight", title: "Move Faster. Clear Smarter. Grow Globally.", subtitle: "From documentation to delivery — one team, one accountability, complete transparency." },
-  { img: heroCustoms, eyebrow: "DGFT & Customs Experts", title: "Compliance Without Compromise", subtitle: "100+ professionals, memberships at FEFA, EIDA, BCBA & Indo-German Chambers." },
-];
-
-const companies = [
-  { name: "Star Exim Management Consultancy & Services Pvt. Ltd.", desc: "DGFT consultancy, licensing & EXIM advisory for compliant global trade." },
-  { name: "Star India Logistic", desc: "Customs clearance and freight forwarding across air & sea — Mumbai, Pune, Delhi." },
-  { name: "Tisha Enterprises", desc: "Specialized import-export trade support and documentation services." },
-  { name: "Alisha Enterprises", desc: "Logistics and transportation support across India with reliable execution." },
+  { img: heroPort, eyebrow: "Global Trade Made Simple", title: "Global Trade. Simple, Fast & Compliant.", subtitle: "Customs clearance, freight forwarding, logistics & EXIM consultancy — delivered with reliability and transparency." },
+  { img: heroAir, eyebrow: "Air & Sea Freight", title: "Move Cargo Across Borders, Seamlessly.", subtitle: "One partner for documentation, regulatory compliance and end-to-end supply chain management." },
+  { img: heroCustoms, eyebrow: "DGFT & Trade Compliance", title: "Your Business. Our Expertise. One Global Solution.", subtitle: "Experienced professionals helping importers, exporters and manufacturers navigate global markets with confidence." },
 ];
 
 const services = [
-  { icon: FileCheck, title: "DGFT Consultancy", desc: "Licensing, schemes, advance authorization & compliance support." },
-  { icon: Ship, title: "Customs Clearance", desc: "Sea & air customs clearance with accurate documentation." },
-  { icon: Plane, title: "Freight Forwarding", desc: "Door-to-door air & sea freight with real-time tracking." },
-  { icon: Truck, title: "Logistics & Transport", desc: "Pan-India transportation, warehousing and last-mile delivery." },
+  { icon: FileCheck, title: "Customs Clearance", desc: "Sea, air & project cargo clearance — accurate, compliant, on time." },
+  { icon: Ship, title: "Freight Forwarding", desc: "Ocean, air & multimodal freight with a trusted global carrier network." },
+  { icon: Globe2, title: "EXIM Consultancy", desc: "Strategic guidance on documentation, licensing and trade policy." },
+  { icon: Truck, title: "Logistics & Transport", desc: "Domestic transportation, port connectivity and last-mile delivery." },
+  { icon: ScrollText, title: "Trade Compliance", desc: "BIS, FSSAI, WPC, LMPC, EPR and product compliance support." },
+  { icon: Warehouse, title: "Warehousing & Distribution", desc: "Secure storage, inventory management and order fulfillment." },
+  { icon: Plane, title: "DGFT Services", desc: "IEC, Advance Authorization, EPCG, RoDTEP and licensing support." },
 ];
 
-const highlights = [
-  { icon: Award, value: "25+", label: "Years of Experience" },
-  { icon: Users, value: "100+", label: "Professional Staff" },
-  { icon: Briefcase, value: "500+", label: "Satisfied Clients" },
-  { icon: Globe2, value: "3", label: "Offices Across India" },
+const values = [
+  { icon: ShieldCheck, title: "Integrity", desc: "Every transaction conducted with honesty, transparency and accountability." },
+  { icon: Sparkles, title: "Excellence", desc: "Continuous improvement to deliver superior service quality." },
+  { icon: HeartHandshake, title: "Customer Focus", desc: "Our clients' success is at the center of every solution we provide." },
+  { icon: Lightbulb, title: "Innovation", desc: "Technology and modern practices to improve efficiency." },
+  { icon: Target, title: "Commitment", desc: "We stand by our promises and deliver consistent results." },
 ];
 
-const updates = [
-  { date: "02 May 2026", title: "Customs Instruction No.06/2026 dt. 27.04.2026", excerpt: "Drawback for re-export of duty paid goods supplied…" },
-  { date: "25 Apr 2026", title: "Customs Instruction No.5/2026 dt. 23.04.2026", excerpt: "Time-bound processing of RoDTEP and related claims…" },
-  { date: "25 Apr 2026", title: "Customs Instruction No.4/2026 dt. 20.04.2026", excerpt: "Authorised Officers under Section 25 read with Sec…" },
-  { date: "25 Apr 2026", title: "Notification No.39/2026 Customs (N.T.) dt. 20.04.2026", excerpt: "De-notification of ICD at Coimbatore (Thudiyalur)…" },
-];
-
-const testimonials = [
-  { name: "R. Sharma", role: "Procurement Head, MNC Electronics", quote: "Star Group's customs team has been our backbone for 8 years. Reliable, transparent, and always ahead on compliance." },
-  { name: "P. Mehta", role: "Director, Engineering Exports", quote: "From DGFT licensing to last-mile delivery, they handle it all. Truly an integrated partner." },
-  { name: "A. Khan", role: "CEO, Food Imports Co.", quote: "Their advisory saved us months of regulatory back-and-forth. Highly recommended." },
+const industries = [
+  "Chemicals & Petrochemicals", "Pharmaceuticals", "Engineering Goods", "Textiles & Garments",
+  "FMCG Products", "Food & Agriculture", "Metals & Minerals", "Automotive Components",
+  "Consumer Electronics", "Industrial Machinery",
 ];
 
 function Hero() {
@@ -89,7 +78,7 @@ function Hero() {
         </p>
         <div className="mt-8 flex flex-wrap gap-3 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <Button asChild size="lg" className="gradient-accent text-accent-foreground border-0 hover:opacity-90">
-            <Link to="/contact">Get a Free Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link to="/contact">Get Started Today <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur border-white/30 text-white hover:bg-white/20">
             <Link to="/services">Explore Services</Link>
@@ -111,23 +100,32 @@ function Home() {
     <Layout>
       <Hero />
 
+      {/* Intro strip */}
+      <section className="bg-secondary/40 py-10">
+        <div className="container-page grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-sm font-medium text-center">
+          {["Customs Clearance","Freight Forwarding","DGFT & EXIM Consultancy","Logistics & Transportation","Trade Compliance"].map((t) => (
+            <div key={t} className="px-4 py-3 rounded-full bg-background border border-border">{t}</div>
+          ))}
+        </div>
+      </section>
+
       {/* About */}
       <section className="container-page py-20 grid gap-12 lg:grid-cols-2 items-center">
         <div className="relative">
-          <img src={aboutImg} alt="Customs clearance team" className="rounded-2xl shadow-elev w-full" width={1200} height={900} loading="lazy" />
-          <div className="absolute -bottom-6 -right-6 hidden md:block bg-card border border-border rounded-2xl shadow-card p-5 w-56">
-            <p className="text-3xl font-bold text-gradient-brand">25+</p>
-            <p className="text-sm text-muted-foreground mt-1">Years driving global trade across India</p>
+          <img src={aboutImg} alt="International trade and logistics" className="rounded-2xl shadow-elev w-full" width={1200} height={900} loading="lazy" />
+          <div className="absolute -bottom-6 -right-6 hidden md:block bg-card border border-border rounded-2xl shadow-card p-5 w-60">
+            <p className="text-2xl font-bold text-gradient-brand">One Global Solution</p>
+            <p className="text-sm text-muted-foreground mt-1">Your Business. Our Expertise.</p>
           </div>
         </div>
         <div>
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Welcome To</p>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">Star Group</h2>
+          <p className="text-accent text-sm font-semibold tracking-widest uppercase">About Us</p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">Building Stronger Global Trade Connections</h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
-            Founded in January 2000 in Mumbai under the vision of Mr. Shashikant Mali, Star Group has grown into an integrated Import–Export (EXIM) consultancy and logistics ecosystem — designed to simplify global trade through transparent, customer-focused execution and expert advisory.
+            Umaapati International Business LLP is a dynamic international trade and logistics solutions provider committed to simplifying complex import-export operations for businesses across industries.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            With a strong presence in Mumbai, Pune & Delhi and associate support across India, the group operates as a unified ecosystem of four specialized companies. Backed by 25+ years of experience and a 100+ professional team, we are trusted by 100+ MNCs, Corporates, and MSMEs.
+            With a customer-first approach and deep industry expertise, we deliver end-to-end solutions covering customs clearance, freight forwarding, trade consultancy, regulatory compliance, transportation, and documentation support.
           </p>
           <Button asChild className="mt-6 gradient-brand text-white border-0">
             <Link to="/about">Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
@@ -135,13 +133,54 @@ function Home() {
         </div>
       </section>
 
+      {/* Vision Mission */}
+      <section className="bg-secondary/40 py-20">
+        <div className="container-page grid gap-6 md:grid-cols-2">
+          <Card className="hover:shadow-card transition">
+            <CardContent className="p-8">
+              <p className="text-accent text-xs font-bold tracking-widest uppercase">Our Vision</p>
+              <h3 className="mt-2 font-display text-2xl font-bold">A globally recognized trade facilitation partner.</h3>
+              <p className="mt-3 text-muted-foreground">Known for reliability, innovation, transparency, and customer success.</p>
+            </CardContent>
+          </Card>
+          <Card className="hover:shadow-card transition">
+            <CardContent className="p-8">
+              <p className="text-accent text-xs font-bold tracking-widest uppercase">Our Mission</p>
+              <h3 className="mt-2 font-display text-2xl font-bold">Integrated logistics & trade solutions.</h3>
+              <p className="mt-3 text-muted-foreground">Simplifying international business operations while creating long-term value for our clients.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="container-page py-20">
+        <div className="text-center max-w-2xl mx-auto">
+          <p className="text-accent text-sm font-semibold tracking-widest uppercase">What We Stand For</p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">Our Core Values</h2>
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {values.map((v) => (
+            <Card key={v.title} className="hover:border-accent hover:shadow-card transition group">
+              <CardContent className="p-6">
+                <div className="h-12 w-12 rounded-xl gradient-brand flex items-center justify-center text-white mb-4 group-hover:scale-110 transition">
+                  <v.icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-display font-semibold">{v.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Services */}
       <section className="bg-secondary/40 py-20">
         <div className="container-page">
           <div className="text-center max-w-2xl mx-auto">
-            <p className="text-accent text-sm font-semibold tracking-widest uppercase">What We Do</p>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2">Our Core Services</h2>
-            <p className="mt-4 text-muted-foreground">Comprehensive EXIM and logistics solutions, delivered with precision.</p>
+            <p className="text-accent text-sm font-semibold tracking-widest uppercase">Our Services</p>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2">End-to-end EXIM & Logistics</h2>
+            <p className="mt-4 text-muted-foreground">A single partner across the full international trade lifecycle.</p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
@@ -156,120 +195,25 @@ function Home() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Group of Companies */}
-      <section className="container-page py-20">
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Our Companies</p>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">Star Group of Companies</h2>
-          <p className="mt-4 text-muted-foreground">Four specialized entities working as one ecosystem to power your global trade.</p>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {companies.map((c, i) => (
-            <Card key={c.name} className="overflow-hidden group hover:shadow-elev transition">
-              <CardContent className="p-0 flex">
-                <div className="w-2 gradient-accent" />
-                <div className="p-6 flex-1">
-                  <p className="text-xs text-accent font-bold mb-1">0{i + 1}</p>
-                  <h3 className="font-display font-semibold text-xl">{c.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
-                  <Link to="/companies" className="mt-4 inline-flex items-center text-brand text-sm font-medium hover:gap-2 transition-all">
-                    Read More <ChevronRight className="h-4 w-4 ml-1" />
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* MD desk */}
-      <section className="bg-brand text-brand-foreground py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, oklch(0.72 0.18 50 / 0.5), transparent 50%)" }} />
-        <div className="container-page relative grid gap-12 lg:grid-cols-[300px_1fr] items-center">
-          <div className="mx-auto">
-            <img src={mdImg} alt="Shashikant Mali, MD" className="h-72 w-72 object-cover rounded-2xl shadow-elev" width={800} height={1000} loading="lazy" />
-          </div>
-          <div>
-            <p className="text-accent text-sm font-semibold tracking-widest uppercase">From the Desk of MD</p>
-            <h2 className="text-4xl font-bold mt-2">Shashikant Mali</h2>
-            <p className="text-brand-foreground/70 mt-1">Managing Director</p>
-            <Quote className="h-10 w-10 text-accent mt-6" />
-            <p className="mt-3 text-lg leading-relaxed text-brand-foreground/90 max-w-3xl">
-              A visionary and optimistic leader continuously striving to deliver better services to our clients. We invest considerable time consulting individually to understand specific requirements and craft customized solutions — a philosophy that helps us grow at 30% year over year.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Highlights */}
-      <section className="container-page py-20">
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Why Choose Us</p>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">Our Key Highlights</h2>
-        </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {highlights.map((h) => (
-            <div key={h.label} className="text-center p-8 rounded-2xl border border-border hover:border-accent hover:shadow-card transition group">
-              <div className="h-16 w-16 mx-auto rounded-2xl gradient-brand flex items-center justify-center text-white group-hover:scale-110 transition">
-                <h.icon className="h-8 w-8" />
-              </div>
-              <p className="mt-5 text-5xl font-bold text-gradient-brand">{h.value}</p>
-              <p className="mt-2 text-muted-foreground font-medium">{h.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Updates */}
-      <section className="bg-secondary/40 py-20">
-        <div className="container-page">
-          <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-            <div>
-              <p className="text-accent text-sm font-semibold tracking-widest uppercase">Latest</p>
-              <h2 className="text-4xl md:text-5xl font-bold mt-2">Updates & Notifications</h2>
-            </div>
+          <div className="text-center mt-10">
             <Button asChild variant="outline">
-              <Link to="/notifications">View All <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/services">View All Services <ChevronRight className="ml-1 h-4 w-4" /></Link>
             </Button>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {updates.map((u) => (
-              <Card key={u.title} className="hover:shadow-card transition group">
-                <CardContent className="p-6">
-                  <p className="text-xs text-accent font-semibold">{u.date}</p>
-                  <h3 className="mt-2 font-display font-semibold leading-snug group-hover:text-brand transition">{u.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{u.excerpt}</p>
-                  <Link to="/notifications" className="mt-4 inline-flex items-center text-brand text-sm font-medium">
-                    Read More <ChevronRight className="h-4 w-4 ml-1" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Industries */}
       <section className="container-page py-20">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Testimonials</p>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">What Our Clients Say</h2>
+          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Industries We Serve</p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">Trusted across diverse sectors</h2>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <Card key={t.name} className="hover:shadow-elev transition">
-              <CardContent className="p-7">
-                <Quote className="h-8 w-8 text-accent" />
-                <p className="mt-4 text-foreground/90 italic leading-relaxed">"{t.quote}"</p>
-                <div className="mt-5 pt-5 border-t border-border">
-                  <p className="font-semibold">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.role}</p>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {industries.map((i) => (
+            <div key={i} className="px-4 py-4 rounded-xl border border-border text-center text-sm font-medium hover:border-accent hover:text-brand transition">
+              {i}
+            </div>
           ))}
         </div>
       </section>
@@ -280,7 +224,7 @@ function Home() {
           <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 20% 30%, oklch(0.72 0.18 50 / 0.6), transparent 40%), radial-gradient(circle at 80% 70%, oklch(0.55 0.18 220 / 0.6), transparent 40%)" }} />
           <div className="relative">
             <h2 className="text-3xl md:text-5xl font-bold">Ready to simplify your global trade?</h2>
-            <p className="mt-4 text-white/85 max-w-2xl mx-auto">Get expert EXIM consultancy and end-to-end logistics support — tailored to your business.</p>
+            <p className="mt-4 text-white/85 max-w-2xl mx-auto">Speak with our experts for tailored trade, customs and logistics solutions.</p>
             <Button asChild size="lg" className="mt-8 bg-white text-brand hover:bg-white/90">
               <Link to="/contact">Talk to an Expert <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>

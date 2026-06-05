@@ -11,12 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as ClienteleRouteImport } from './routes/clientele'
-import { Route as CareerRouteImport } from './routes/career'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,34 +26,14 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NotificationsRoute = NotificationsRouteImport.update({
-  id: '/notifications',
-  path: '/notifications',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CompaniesRoute = CompaniesRouteImport.update({
-  id: '/companies',
-  path: '/companies',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ClienteleRoute = ClienteleRouteImport.update({
   id: '/clientele',
   path: '/clientele',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareerRoute = CareerRouteImport.update({
-  id: '/career',
-  path: '/career',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -74,24 +50,16 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
-  '/career': typeof CareerRoute
   '/clientele': typeof ClienteleRoute
-  '/companies': typeof CompaniesRoute
   '/contact': typeof ContactRoute
-  '/notifications': typeof NotificationsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
-  '/career': typeof CareerRoute
   '/clientele': typeof ClienteleRoute
-  '/companies': typeof CompaniesRoute
   '/contact': typeof ContactRoute
-  '/notifications': typeof NotificationsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -99,12 +67,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRoute
-  '/career': typeof CareerRoute
   '/clientele': typeof ClienteleRoute
-  '/companies': typeof CompaniesRoute
   '/contact': typeof ContactRoute
-  '/notifications': typeof NotificationsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -113,36 +77,18 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
-    | '/career'
     | '/clientele'
-    | '/companies'
     | '/contact'
-    | '/notifications'
     | '/services'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/blog'
-    | '/career'
-    | '/clientele'
-    | '/companies'
-    | '/contact'
-    | '/notifications'
-    | '/services'
-    | '/sitemap.xml'
+  to: '/' | '/about' | '/clientele' | '/contact' | '/services' | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
-    | '/career'
     | '/clientele'
-    | '/companies'
     | '/contact'
-    | '/notifications'
     | '/services'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
@@ -150,12 +96,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRoute
-  CareerRoute: typeof CareerRoute
   ClienteleRoute: typeof ClienteleRoute
-  CompaniesRoute: typeof CompaniesRoute
   ContactRoute: typeof ContactRoute
-  NotificationsRoute: typeof NotificationsRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -176,13 +118,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/notifications': {
-      id: '/notifications'
-      path: '/notifications'
-      fullPath: '/notifications'
-      preLoaderRoute: typeof NotificationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -190,32 +125,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/companies': {
-      id: '/companies'
-      path: '/companies'
-      fullPath: '/companies'
-      preLoaderRoute: typeof CompaniesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/clientele': {
       id: '/clientele'
       path: '/clientele'
       fullPath: '/clientele'
       preLoaderRoute: typeof ClienteleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/career': {
-      id: '/career'
-      path: '/career'
-      fullPath: '/career'
-      preLoaderRoute: typeof CareerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -238,12 +152,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRoute,
-  CareerRoute: CareerRoute,
   ClienteleRoute: ClienteleRoute,
-  CompaniesRoute: CompaniesRoute,
   ContactRoute: ContactRoute,
-  NotificationsRoute: NotificationsRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

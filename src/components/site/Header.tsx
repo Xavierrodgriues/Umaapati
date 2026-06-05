@@ -1,17 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, Menu, X, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Mail, Phone, Menu, X, Linkedin, Facebook, Linkedin as LinkedinIcon } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
   { to: "/services", label: "Services" },
-  { to: "/companies", label: "Companies" },
-  { to: "/clientele", label: "Clientele" },
-  { to: "/notifications", label: "Notifications" },
-  { to: "/blog", label: "Blog" },
-  { to: "/career", label: "Career" },
+  { to: "/clientele", label: "Industries" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -21,32 +17,28 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* top bar */}
       <div className="hidden md:block bg-brand text-brand-foreground/90 text-sm">
         <div className="container-page flex h-10 items-center justify-between">
           <div className="flex items-center gap-6">
-            <a href="mailto:sales1@stargroup.in" className="flex items-center gap-2 hover:text-accent transition">
-              <Mail className="h-3.5 w-3.5" /> sales1@stargroup.in
+            <a href="mailto:Deepanshu@Umaapati.com" className="flex items-center gap-2 hover:text-accent transition">
+              <Mail className="h-3.5 w-3.5" /> Deepanshu@Umaapati.com
             </a>
-            <a href="tel:+919892575304" className="flex items-center gap-2 hover:text-accent transition">
-              <Phone className="h-3.5 w-3.5" /> +91 9892575304
+            <a href="tel:+919029079890" className="flex items-center gap-2 hover:text-accent transition">
+              <Phone className="h-3.5 w-3.5" /> +91 90290 79890
             </a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="#" aria-label="Twitter" className="hover:text-accent"><Twitter className="h-4 w-4" /></a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-accent"><Linkedin className="h-4 w-4" /></a>
-            <a href="#" aria-label="Instagram" className="hover:text-accent"><Instagram className="h-4 w-4" /></a>
+            <a href="#" aria-label="LinkedIn" className="hover:text-accent"><LinkedinIcon className="h-4 w-4" /></a>
             <a href="#" aria-label="Facebook" className="hover:text-accent"><Facebook className="h-4 w-4" /></a>
           </div>
         </div>
       </div>
 
-      {/* main nav */}
       <div className="bg-background/90 backdrop-blur border-b border-border">
         <div className="container-page flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="Star Group" className="h-10 w-10" width={40} height={40} />
-            <span className="font-display text-xl font-bold tracking-tight text-brand">STAR GROUP</span>
+            <img src={logo} alt="Umaapati International Business LLP" className="h-10 w-10" width={40} height={40} />
+            <span className="font-display text-lg md:text-xl font-bold tracking-tight text-brand">UMAAPATI<span className="text-accent">.</span></span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
