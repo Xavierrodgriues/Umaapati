@@ -1,39 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout, PageHeader } from "@/components/site/Layout";
 import { Card, CardContent } from "@/components/ui/card";
+import { Beaker, Pill, Cog, Shirt, ShoppingBag, Wheat, Mountain, Car, Cpu, Factory } from "lucide-react";
 
 export const Route = createFileRoute("/clientele")({
   head: () => ({
     meta: [
-      { title: "Clientele — Star Group" },
-      { name: "description", content: "Trusted by 100+ MNCs, corporates and MSMEs across diverse industries." },
-      { property: "og:title", content: "Our Clientele — Star Group" },
-      { property: "og:description", content: "Industries we serve — electrical, engineering, food, chemicals, automobile and more." },
+      { title: "Industries We Serve — Umaapati International Business LLP" },
+      { name: "description", content: "Supporting businesses across chemicals, pharma, engineering, textiles, FMCG, food, metals, automotive, electronics and machinery." },
+      { property: "og:title", content: "Industries We Serve — Umaapati" },
+      { property: "og:description", content: "Trusted by clients across diverse industries." },
     ],
   }),
-  component: Clientele,
+  component: Industries,
 });
 
 const sectors = [
-  "Electrical", "Engineering", "Entertainment", "Food & Beverage",
-  "Furniture", "General Trade", "Agro", "Air Conditioning",
-  "Automobile", "Chemical", "Cosmetics", "Pharmaceutical",
-  "Textile", "IT & Hardware", "Machinery", "Retail",
+  { icon: Beaker, name: "Chemicals & Petrochemicals" },
+  { icon: Pill, name: "Pharmaceuticals" },
+  { icon: Cog, name: "Engineering Goods" },
+  { icon: Shirt, name: "Textiles & Garments" },
+  { icon: ShoppingBag, name: "FMCG Products" },
+  { icon: Wheat, name: "Food & Agriculture" },
+  { icon: Mountain, name: "Metals & Minerals" },
+  { icon: Car, name: "Automotive Components" },
+  { icon: Cpu, name: "Consumer Electronics" },
+  { icon: Factory, name: "Industrial Machinery" },
 ];
 
-function Clientele() {
+function Industries() {
   return (
     <Layout>
-      <PageHeader eyebrow="Clientele" title="Trusted by industry leaders" subtitle="100+ MNCs, corporates and MSMEs across 16+ industry verticals partner with us." />
+      <PageHeader eyebrow="Industries We Serve" title="Trusted across diverse industries" subtitle="We proudly support businesses across multiple industry verticals with tailored trade, customs and logistics solutions." />
       <section className="container-page py-20">
-        <div className="grid gap-4 sm:grid-cols-3 md:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {sectors.map((s) => (
-            <Card key={s} className="hover:border-accent transition group">
-              <CardContent className="p-6 flex items-center justify-center min-h-32">
-                <div className="text-center">
-                  <div className="h-10 w-10 rounded-full gradient-accent mx-auto group-hover:scale-110 transition" />
-                  <p className="mt-3 font-display font-semibold">{s}</p>
+            <Card key={s.name} className="hover:border-accent hover:shadow-card transition group">
+              <CardContent className="p-6 flex flex-col items-center text-center">
+                <div className="h-14 w-14 rounded-2xl gradient-brand text-white flex items-center justify-center group-hover:scale-110 transition">
+                  <s.icon className="h-7 w-7" />
                 </div>
+                <p className="mt-4 font-display font-semibold text-sm">{s.name}</p>
               </CardContent>
             </Card>
           ))}
