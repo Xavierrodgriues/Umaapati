@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ShieldCheck, Sparkles, HeartHandshake, Lightbulb, Target, Ship, Plane, FileCheck, Truck, Warehouse, ScrollText, Globe2, ChevronRight } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles, HeartHandshake, Lightbulb, Target, Ship, Plane, FileCheck, Truck, Warehouse, ScrollText, Globe2, ChevronRight, Beaker, Pill, Cog, Shirt, ShoppingBag, Wheat, Mountain, Car, Cpu, Factory } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroPort from "@/assets/hero-port.jpg";
 import heroAir from "@/assets/hero-air.jpg";
@@ -73,9 +73,24 @@ const strengths = [
 ];
 
 const industries = [
-  "Chemicals & Petrochemicals", "Pharmaceuticals", "Engineering Goods", "Textiles & Garments",
-  "FMCG Products", "Food & Agriculture", "Metals & Minerals", "Automotive Components",
-  "Consumer Electronics", "Industrial Machinery",
+  { icon: Beaker, gradient: "from-blue-500 to-blue-700", name: "Chemicals & Petrochemicals" },
+  { icon: Pill, gradient: "from-rose-500 to-rose-700", name: "Pharmaceuticals" },
+  { icon: Cog, gradient: "from-slate-500 to-slate-700", name: "Engineering Goods" },
+  { icon: Shirt, gradient: "from-violet-500 to-violet-700", name: "Textiles & Garments" },
+  { icon: ShoppingBag, gradient: "from-orange-500 to-orange-700", name: "FMCG Products" },
+  { icon: Wheat, gradient: "from-emerald-500 to-emerald-700", name: "Food & Agriculture" },
+  { icon: Mountain, gradient: "from-amber-600 to-amber-800", name: "Metals & Minerals" },
+  { icon: Car, gradient: "from-cyan-500 to-cyan-700", name: "Automotive Components" },
+  { icon: Cpu, gradient: "from-sky-500 to-sky-700", name: "Consumer Electronics" },
+  { icon: Factory, gradient: "from-teal-500 to-teal-700", name: "Industrial Machinery" },
+];
+
+const introServices = [
+  { icon: FileCheck, gradient: "from-blue-500 to-blue-700", label: "Customs Clearance" },
+  { icon: Ship, gradient: "from-cyan-500 to-cyan-700", label: "Freight Forwarding" },
+  { icon: Globe2, gradient: "from-violet-500 to-violet-700", label: "DGFT & EXIM Consultancy" },
+  { icon: Truck, gradient: "from-orange-500 to-orange-700", label: "Logistics & Transportation" },
+  { icon: ScrollText, gradient: "from-rose-500 to-rose-700", label: "Trade Compliance" },
 ];
 
 function Hero() {
@@ -129,9 +144,14 @@ export default function Home() {
 
       {/* Intro strip */}
       <section className="bg-secondary/40 py-10">
-        <div className="container-page grid gap-4 sm:grid-cols-2 lg:grid-cols-5 text-sm font-medium text-center">
-          {["Customs Clearance","Freight Forwarding","DGFT & EXIM Consultancy","Logistics & Transportation","Trade Compliance"].map((t) => (
-            <div key={t} className="px-4 py-3 rounded-full bg-background border border-border">{t}</div>
+        <div className="container-page grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {introServices.map((item) => (
+            <div key={item.label} className="group flex items-center gap-3 rounded-2xl bg-background border border-border px-4 py-3.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+              <div className={`h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform`}>
+                <item.icon className="h-4 w-4" />
+              </div>
+              <span className="text-sm font-semibold leading-tight">{item.label}</span>
+            </div>
           ))}
         </div>
       </section>
@@ -261,14 +281,22 @@ export default function Home() {
 
       {/* Industries */}
       <section className="container-page py-20">
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-accent text-sm font-semibold tracking-widest uppercase">Industries We Serve</p>
           <h2 className="text-4xl md:text-5xl font-bold mt-2">Trusted across diverse sectors</h2>
         </div>
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {industries.map((i) => (
-            <div key={i} className="px-4 py-4 rounded-xl border border-border text-center text-sm font-medium hover:border-accent hover:text-brand transition">
-              {i}
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {industries.map((ind) => (
+            <div
+              key={ind.name}
+              className="group relative rounded-2xl border bg-card p-5 text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+            >
+              {/* ambient glow */}
+              <div className={`absolute -top-6 left-1/2 -translate-x-1/2 h-16 w-16 rounded-full bg-gradient-to-br ${ind.gradient} opacity-10 group-hover:opacity-25 blur-xl transition-opacity`} />
+              <div className={`mx-auto h-12 w-12 rounded-xl bg-gradient-to-br ${ind.gradient} flex items-center justify-center text-white mb-3 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                <ind.icon className="h-6 w-6" />
+              </div>
+              <p className="text-sm font-semibold leading-snug">{ind.name}</p>
             </div>
           ))}
         </div>
