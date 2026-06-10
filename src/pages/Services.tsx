@@ -15,6 +15,7 @@ const services = [
     accentText: "text-blue-600",
     accentBorder: "border-blue-500",
     accentBg: "bg-blue-600",
+    image: "/customs_clearance.png",
     number: "01",
     title: "Customs Clearance Services",
     tagline: "Seamless Customs Clearance for Smooth International Trade",
@@ -46,6 +47,7 @@ const services = [
     accentText: "text-cyan-600",
     accentBorder: "border-cyan-500",
     accentBg: "bg-cyan-600",
+    image: "/freight_forwarding.png",
     number: "02",
     title: "International Freight Forwarding",
     tagline: "Reliable Freight Solutions Connecting Global Markets",
@@ -77,6 +79,7 @@ const services = [
     accentText: "text-violet-600",
     accentBorder: "border-violet-500",
     accentBg: "bg-violet-600",
+    image: "/exim_consultancy.png",
     number: "03",
     title: "Export Import Consultancy",
     tagline: "Expert Guidance for International Business Growth",
@@ -108,6 +111,7 @@ const services = [
     accentText: "text-orange-600",
     accentBorder: "border-orange-500",
     accentBg: "bg-orange-600",
+    image: "/logistics_transportation.png",
     number: "04",
     title: "Logistics & Transportation Services",
     tagline: "Efficient Cargo Movement Across Every Stage of the Supply Chain",
@@ -139,6 +143,7 @@ const services = [
     accentText: "text-rose-600",
     accentBorder: "border-rose-500",
     accentBg: "bg-rose-600",
+    image: "/trade_compliance.png",
     number: "05",
     title: "Trade Compliance & Regulatory Services",
     tagline: "Ensuring Compliance in a Dynamic Global Trade Environment",
@@ -170,6 +175,7 @@ const services = [
     accentText: "text-emerald-600",
     accentBorder: "border-emerald-500",
     accentBg: "bg-emerald-600",
+    image: "/warehousing_distribution.png",
     number: "06",
     title: "Warehousing & Distribution Services",
     tagline: "Secure Storage and Efficient Inventory Management",
@@ -201,6 +207,7 @@ const services = [
     accentText: "text-sky-600",
     accentBorder: "border-sky-500",
     accentBg: "bg-sky-600",
+    image: "/dgft_services.png",
     number: "07",
     title: "DGFT Services",
     tagline: "Professional DGFT Consultancy for International Trade Success",
@@ -334,64 +341,82 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* Body */}
-              <div className="p-5 md:p-10 space-y-6 md:space-y-8">
+              {/* Body — image right on desktop, image above on mobile */}
+              <div className="p-5 md:p-8">
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
 
-                {/* Description */}
-                <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
-                  {s.paragraphs.map((para, i) => (
-                    <p key={i}>{para}</p>
-                  ))}
-                </div>
+                  {/* ── Text — order-2 mobile (below image), order-1 desktop (left) ── */}
+                  <div className="flex-1 min-w-0 space-y-5 order-2 md:order-1">
+                    <div className="space-y-3 text-muted-foreground leading-relaxed text-sm md:text-base">
+                      {s.paragraphs.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
 
-                {/* Services list */}
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className={`h-0.5 w-8 rounded-full ${s.accentBg}`} />
-                    <p className={`font-semibold text-xs md:text-sm uppercase tracking-wider ${s.accentText}`}>
-                      {s.listHeading}
-                    </p>
-                  </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className={`h-0.5 w-8 rounded-full ${s.accentBg}`} />
+                        <p className={`font-semibold text-xs md:text-sm uppercase tracking-wider ${s.accentText}`}>
+                          {s.listHeading}
+                        </p>
+                      </div>
+                      <ul className="grid gap-2 sm:grid-cols-2">
+                        {s.points.map((p) => (
+                          <li key={p} className="flex items-start gap-2.5">
+                            <CheckCircle2 className={`h-4 w-4 shrink-0 mt-0.5 ${s.accentText}`} />
+                            <span className="text-xs md:text-sm text-foreground">{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <ul className="grid gap-2.5 sm:grid-cols-2">
-                    {s.points.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5">
-                        <CheckCircle2 className={`h-4 w-4 md:h-5 md:w-5 shrink-0 mt-0.5 ${s.accentText}`} />
-                        <span className="text-xs md:text-sm text-foreground">{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Prev / Next navigation */}
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <button
-                    onClick={() => setActive((prev) => Math.max(0, prev - 1))}
-                    disabled={active === 0}
-                    className="flex items-center gap-1.5 text-xs md:text-sm font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition"
-                  >
-                    <ChevronRight className="h-4 w-4 rotate-180" />
-                    Previous
-                  </button>
-
-                  <div className="flex gap-1.5">
-                    {services.map((_, i) => (
+                    {/* Prev / Next navigation */}
+                    <div className="flex items-center justify-between pt-5 border-t">
                       <button
-                        key={i}
-                        onClick={() => setActive(i)}
-                        className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${i === active ? `w-5 md:w-6 ${s.accentBg}` : "w-1.5 md:w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60"}`}
-                      />
-                    ))}
+                        onClick={() => setActive((prev) => Math.max(0, prev - 1))}
+                        disabled={active === 0}
+                        className="flex items-center gap-1.5 text-xs md:text-sm font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition"
+                      >
+                        <ChevronRight className="h-4 w-4 rotate-180" />
+                        Previous
+                      </button>
+                      <div className="flex gap-1.5">
+                        {services.map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setActive(i)}
+                            className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${i === active ? `w-5 md:w-6 ${s.accentBg}` : "w-1.5 md:w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60"}`}
+                          />
+                        ))}
+                      </div>
+                      <button
+                        onClick={() => setActive((prev) => Math.min(services.length - 1, prev + 1))}
+                        disabled={active === services.length - 1}
+                        className="flex items-center gap-1.5 text-xs md:text-sm font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition"
+                      >
+                        Next
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
+                    </div>
                   </div>
 
-                  <button
-                    onClick={() => setActive((prev) => Math.min(services.length - 1, prev + 1))}
-                    disabled={active === services.length - 1}
-                    className="flex items-center gap-1.5 text-xs md:text-sm font-medium text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition"
-                  >
-                    Next
-                    <ChevronRight className="h-4 w-4" />
-                  </button>
+                  {/* ── Image — order-1 mobile (above text), order-2 desktop (right) ── */}
+                  <div className="w-full md:w-64 lg:w-72 shrink-0 order-1 md:order-2">
+                    <div className="relative rounded-2xl overflow-hidden shadow-md h-48 md:h-80">
+                      <img
+                        src={s.image}
+                        alt={s.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className={`absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t ${s.gradient} opacity-40`} />
+                      <div className="absolute bottom-3 left-3">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-black/30 backdrop-blur-sm rounded-full px-2.5 py-1">
+                          {s.title}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
