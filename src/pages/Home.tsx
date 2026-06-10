@@ -16,21 +16,60 @@ const slides = [
 ];
 
 const services = [
-  { icon: FileCheck, title: "Customs Clearance", desc: "Sea, air & project cargo clearance — accurate, compliant, on time." },
-  { icon: Ship, title: "Freight Forwarding", desc: "Ocean, air & multimodal freight with a trusted global carrier network." },
-  { icon: Globe2, title: "EXIM Consultancy", desc: "Strategic guidance on documentation, licensing and trade policy." },
-  { icon: Truck, title: "Logistics & Transport", desc: "Domestic transportation, port connectivity and last-mile delivery." },
-  { icon: ScrollText, title: "Trade Compliance", desc: "BIS, FSSAI, WPC, LMPC, EPR and product compliance support." },
-  { icon: Warehouse, title: "Warehousing & Distribution", desc: "Secure storage, inventory management and order fulfillment." },
-  { icon: Plane, title: "DGFT Services", desc: "IEC, Advance Authorization, EPCG, RoDTEP and licensing support." },
+  { icon: FileCheck, gradient: "from-blue-500 to-blue-700", title: "Customs Clearance", desc: "Sea, air & project cargo clearance — accurate, compliant, on time." },
+  { icon: Ship, gradient: "from-cyan-500 to-cyan-700", title: "Freight Forwarding", desc: "Ocean, air & multimodal freight with a trusted global carrier network." },
+  { icon: Globe2, gradient: "from-violet-500 to-violet-700", title: "EXIM Consultancy", desc: "Strategic guidance on documentation, licensing and trade policy." },
+  { icon: Truck, gradient: "from-orange-500 to-orange-700", title: "Logistics & Transport", desc: "Domestic transportation, port connectivity and last-mile delivery." },
+  { icon: ScrollText, gradient: "from-rose-500 to-rose-700", title: "Trade Compliance", desc: "BIS, FSSAI, WPC, LMPC, EPR and product compliance support." },
+  { icon: Warehouse, gradient: "from-emerald-500 to-emerald-700", title: "Warehousing & Distribution", desc: "Secure storage, inventory management and order fulfillment." },
+  { icon: Plane, gradient: "from-sky-500 to-sky-700", title: "DGFT Services", desc: "IEC, Advance Authorization, EPCG, RoDTEP and licensing support." },
 ];
 
 const values = [
-  { icon: ShieldCheck, title: "Integrity", desc: "Every transaction conducted with honesty, transparency and accountability." },
-  { icon: Sparkles, title: "Excellence", desc: "Continuous improvement to deliver superior service quality." },
-  { icon: HeartHandshake, title: "Customer Focus", desc: "Our clients' success is at the center of every solution we provide." },
-  { icon: Lightbulb, title: "Innovation", desc: "Technology and modern practices to improve efficiency." },
-  { icon: Target, title: "Commitment", desc: "We stand by our promises and deliver consistent results." },
+  { icon: ShieldCheck, gradient: "from-blue-500 to-blue-700", title: "Integrity", desc: "Every transaction conducted with honesty, transparency and accountability." },
+  { icon: Sparkles, gradient: "from-amber-500 to-orange-600", title: "Excellence", desc: "Continuous improvement to deliver superior service quality." },
+  { icon: HeartHandshake, gradient: "from-rose-500 to-pink-600", title: "Customer Focus", desc: "Our clients' success is at the center of every solution we provide." },
+  { icon: Lightbulb, gradient: "from-violet-500 to-violet-700", title: "Innovation", desc: "Technology and modern practices to improve efficiency." },
+  { icon: Target, gradient: "from-emerald-500 to-emerald-700", title: "Commitment", desc: "We stand by our promises and deliver consistent results." },
+];
+
+const strengths = [
+  {
+    icon: Lightbulb,
+    title: "Industry Expertise",
+    desc: "With extensive experience in international trade and logistics, we understand the operational, regulatory, and commercial challenges faced by businesses. Our expertise allows us to provide practical and effective solutions tailored to each client's requirements.",
+    gradient: "from-blue-500 to-blue-700",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Customer-Centric Approach",
+    desc: "Every business is unique. We take the time to understand our clients' objectives, operational needs, and growth plans before recommending customized solutions that deliver measurable value.",
+    gradient: "from-violet-500 to-violet-700",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Compliance Excellence",
+    desc: "Global trade regulations continue to evolve. Our team remains updated with the latest industry developments, customs requirements, and government policies to ensure that our clients remain compliant and avoid unnecessary risks.",
+    gradient: "from-rose-500 to-rose-700",
+  },
+  {
+    icon: Target,
+    title: "Strong Professional Network",
+    desc: "Our extensive network of logistics partners, transportation providers, shipping lines, customs professionals, and industry stakeholders enables us to deliver seamless services across multiple geographies.",
+    gradient: "from-emerald-500 to-emerald-700",
+  },
+  {
+    icon: Sparkles,
+    title: "Operational Efficiency",
+    desc: "We focus on reducing delays, minimizing operational bottlenecks, and improving overall supply chain performance through streamlined processes and proactive coordination.",
+    gradient: "from-orange-500 to-orange-700",
+  },
+  {
+    icon: Globe2,
+    title: "Transparent Communication",
+    desc: "We believe transparency is the foundation of successful business relationships. Our clients receive regular updates, clear communication, and responsive support throughout every stage of the process.",
+    gradient: "from-cyan-500 to-cyan-700",
+  },
 ];
 
 const industries = [
@@ -141,24 +180,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core Values */}
+      {/* Our Strengths */}
       <section className="container-page py-20">
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase">What We Stand For</p>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">Our Core Values</h2>
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <p className="text-accent text-sm font-semibold tracking-widest uppercase">Why Work With Us</p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">Our Strengths</h2>
+          <p className="mt-4 text-muted-foreground">What sets us apart in delivering world-class international trade and logistics solutions.</p>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {values.map((v) => (
-            <Card key={v.title} className="hover:border-accent hover:shadow-card transition group">
-              <CardContent className="p-6">
-                <div className="h-12 w-12 rounded-xl gradient-brand flex items-center justify-center text-white mb-4 group-hover:scale-110 transition">
-                  <v.icon className="h-6 w-6" />
-                </div>
-                <h3 className="font-display font-semibold">{v.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
-              </CardContent>
-            </Card>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {strengths.map((st) => (
+            <div
+              key={st.title}
+              className="group relative rounded-2xl border bg-card p-7 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+            >
+              {/* subtle gradient top-left glow */}
+              <div className={`absolute -top-8 -left-8 h-24 w-24 rounded-full bg-gradient-to-br ${st.gradient} opacity-10 group-hover:opacity-20 transition-opacity blur-2xl`} />
+              {/* Icon */}
+              <div className={`h-12 w-12 rounded-xl bg-gradient-to-br ${st.gradient} flex items-center justify-center text-white mb-5 shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                <st.icon className="h-6 w-6" />
+              </div>
+              {/* Content */}
+              <h3 className="font-display font-bold text-lg mb-2">{st.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{st.desc}</p>
+            </div>
           ))}
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="bg-secondary/40 py-20">
+        <div className="container-page">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="text-accent text-sm font-semibold tracking-widest uppercase">What We Stand For</p>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2">Our Core Values</h2>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {values.map((v) => (
+              <Card key={v.title} className="hover:border-accent hover:shadow-card transition group">
+                <CardContent className="p-6">
+                  <div className={`h-12 w-12 rounded-xl bg-gradient-to-br ${v.gradient} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition shadow-md`}>
+                    <v.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="font-display font-semibold">{v.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -174,7 +242,7 @@ export default function Home() {
             {services.map((s) => (
               <Card key={s.title} className="group border-border hover:border-accent transition-all hover:-translate-y-1 hover:shadow-card">
                 <CardContent className="p-6">
-                  <div className="h-12 w-12 rounded-xl gradient-brand flex items-center justify-center text-white mb-4 group-hover:scale-110 transition">
+                  <div className={`h-12 w-12 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition shadow-md`}>
                     <s.icon className="h-6 w-6" />
                   </div>
                   <h3 className="font-display font-semibold text-lg">{s.title}</h3>
